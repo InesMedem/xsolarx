@@ -14,8 +14,8 @@ files.configCloudinary();
 
 const PORT = process.env.PORT;
 
-const cors = require("cors");
-app.use(cors());
+// const cors = require("cors");
+// app.use(cors());
 
 //! ------------------ limitaciones de cantidad en el back end
 app.use(express.json({ limit: "5mb" }));
@@ -46,6 +46,8 @@ app.use("*", (req, res, next) => {
   return next(error);
 });
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 //! ------------------> cuando el servidor crachea metemos un 500 ----------
 app.use((error, req, res) => {
   return res
@@ -60,3 +62,5 @@ app.disable("x-powered-by");
 app.listen(PORT, () =>
   console.log(`Server listening on port 👌🔍 http://localhost:${PORT}`)
 );
+
+module.exports = app;

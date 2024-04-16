@@ -40,13 +40,13 @@ app.use("/api/v1/rating/", RatingRoutes);
 const CompanyRoutes = require("./src/api/routes/Company.routes");
 app.use("/api/v1/company/", CompanyRoutes);
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
+
 app.use("*", (req, res, next) => {
   const error = new Error("Route not found");
   error.status = 404;
   return next(error);
 });
-
-app.get("/", (req, res) => res.send("Express on Vercel"));
 
 //! ------------------> cuando el servidor crachea metemos un 500 ----------
 app.use((error, req, res) => {

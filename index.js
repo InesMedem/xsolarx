@@ -14,8 +14,15 @@ files.configCloudinary();
 
 const PORT = process.env.PORT;
 
-// const cors = require("cors");
-// app.use(cors());
+const cors = require("cors");
+// Allow all origins
+app.use(cors());
+// Allow specific origin(s)
+app.use(
+  cors({
+    origin: "https://frontend-pearl-five-99.vercel.app/",
+  })
+);
 
 //! ------------------ limitaciones de cantidad en el back end
 app.use(express.json({ limit: "5mb" }));

@@ -21,6 +21,8 @@ app.use(cors());
 app.use(
   cors({
     origin: "https://frontend-pearl-five-99.vercel.app/",
+    methods: ["POST", "GET"],
+    credentials: true,
   })
 );
 

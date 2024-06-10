@@ -18,11 +18,19 @@ const cors = require("cors");
 // Allow all origins
 app.use(cors());
 // Allow specific origin(s)
+// app.use(
+//   cors({
+//     origin: "https://frontend-pearl-five-99.vercel.app/",
+//     methods: ["POST", "GET"],
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin: "https://frontend-pearl-five-99.vercel.app/",
-    // methods: ["POST", "GET"],
-    // credentials: true,
+    origin: "https://frontend-pearl-five-99.vercel.app", // Correct the origin by removing trailing slash
+    methods: ["GET", "POST", "PATCH", "DELETE"], // Specify allowed methods if needed
+    credentials: true, // Include credentials if required
   })
 );
 
